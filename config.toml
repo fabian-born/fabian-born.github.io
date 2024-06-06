@@ -1,3 +1,14 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseurl = "https://zhaohuabing.com"
+title = ".: fabian born :. "
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
+googleAnalytics = ""
+preserveTaxonomyNames = true
+paginate = 5 #frontpage pagination
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
+
+# header_image = "img/home-bg-jeep.jpg"
