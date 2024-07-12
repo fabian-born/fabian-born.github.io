@@ -30,7 +30,7 @@ twitter_username: fabian-born
 github_username:  fabian-born
 
 # Build settings
-theme: jekyll-sleek
+theme: jekyll-theme-yat
 plugins:
   - jekyll-feed
 

@@ -12,6 +12,7 @@ source "https://rubygems.org"
 gem "minima", "~> 2.5"
 gem "bulma-clean-theme",  '0.14.0'
 gem "jekyll-sleek"
+gem "jekyll-theme-yat"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
