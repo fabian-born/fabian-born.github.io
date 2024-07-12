@@ -30,8 +30,7 @@ twitter_username: fabian-born
 github_username:  fabian-born
 
 # Build settings
-# theme: bulma-clean-theme
-remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+theme: jekyll-sleek
 plugins:
   - jekyll-feed
 
