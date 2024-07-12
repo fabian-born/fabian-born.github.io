@@ -152,7 +152,7 @@ night_mode: "auto"
 # this and add the path to the pages in order as they should show up
 header_pages:
   - index.html
-  - about.html
+  - about.md
   - categories.html
 #   - archives.html
 #   - categories.html
