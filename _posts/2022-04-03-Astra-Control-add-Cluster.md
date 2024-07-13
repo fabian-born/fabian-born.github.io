@@ -1,4 +1,4 @@
-—
+——-
 title: „Add Kubernetes Cluster to Astra Control“
 date:  2022-04-03T00:00:00+02:00
 draft: false
