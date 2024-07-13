@@ -1,14 +1,15 @@
-——-
-title: „Add Kubernetes Cluster to Astra Control“
-date:  2022-04-03T00:00:00+02:00
+---
+title: Add Kubernetes Cluster to Astra Control
+date: 2022-04-03
 draft: false
-categories: [„NetApp“,“Docker“,“Kubernetes“,“Trident“,“DevOps“,“Azure“,“GCP“,“AstraControl“]
+categories: NetApp, Docker, Kubernetes, Trident, DevOps, Azure, GCP, AWS, AstraControl
 banner: /nadevops-autobackup.png
 layout: post
-—
+---
 <img width=„1019“ alt=„image“ src=„https://raw.githubusercontent.com/project-epicshit/project-epicshit.github.io/main/static/nadevops-autobackup.png“>
 
-# Automated enabling backup
+## Automated enabling backup
+
 
 In the first post, we wrote about the requirements for an optimized DevOps environment. In the second, we provisioned the Kubernetes cluster with NetApp storage.
 
