@@ -8,7 +8,6 @@ categorie: howto
 banner: /assets/images/content/nadevops-autobackup.png
 layout: post
 ---
-<img width="1019" alt="image" src="https://raw.githubusercontent.com/project-epicshit/project-epicshit.github.io/main/static/nadevops-autobackup.png">
 
 ## Automated enabling backup
 
