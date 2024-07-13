@@ -1,8 +1,10 @@
 ---
-title: Add Kubernetes Cluster to Astra Control
+title: Astra Control
+subtitle: Add new Kubernetes Cluster
 date: 2022-04-03
 draft: false
-categories: NetApp, Docker, Kubernetes, Trident, DevOps, Azure, GCP, AWS, AstraControl
+tag: NetApp Docker Kubernetes Trident DevOps Azure GCP AWS AstraControl
+categorie: howto
 banner: /nadevops-autobackup.png
 layout: post
 ---
