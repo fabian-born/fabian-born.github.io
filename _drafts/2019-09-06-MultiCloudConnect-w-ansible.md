@@ -1,11 +1,11 @@
 ---
 title: "Multi Cloud Connect with Ansible starting with Azure"
-date: 2019-09-06T18:00:00+02:00
+date: 2019-09-06
 draft: false
 
-tags : ["cloud", "ansible", "automation"]
-categories : ["cloud", "ansible", "automation"]
-banner : "img/cloud_small_azure.png"
+tags: ["cloud", "ansible", "automation"]
+categories: howto
+banner : "/assets/images/content/cloud-small-azure.png"
 author : "Fabian Born"
 ---
 

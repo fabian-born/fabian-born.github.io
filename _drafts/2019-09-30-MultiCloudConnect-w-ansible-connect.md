@@ -1,11 +1,11 @@
 ---
 title: "Multi Cloud Connect with Ansible - connect the hyperscaler"
-date: 2019-09-30T17:00:05+02:00
+date: 2019-09-30
 draft: false
 
 tags : ["cloud", "ansible", "automation"]
-categories : ["cloud", "ansible", "automation"]
-banner : "img/cloud_small_all.png"
+categories: howto
+banner : "/assets/images/contentcloud-small-all.png"
 author : "Fabian Born"
 ---
 

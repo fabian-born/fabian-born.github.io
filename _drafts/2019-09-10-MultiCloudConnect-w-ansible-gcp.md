@@ -1,11 +1,11 @@
 ---
 title: "Multi Cloud Connect with Ansible - configure GCP"
-date: 2019-09-10T18:00:00+02:00
+date: 2019-09-10
 draft: false
 
 tags : ["cloud", "ansible", "automation"]
-categories : ["cloud", "ansible", "automation"]
-banner : "img/cloud_small_gcp.png"
+categories: howto
+banner : "/assets/images/content/cloud-small-gcp.png"
 author : "Fabian Born"
 ---
 

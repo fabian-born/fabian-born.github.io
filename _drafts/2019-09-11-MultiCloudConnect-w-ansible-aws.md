@@ -1,11 +1,11 @@
 ---
 title: "Multi Cloud Connect with Ansible - configure AWS"
-date: 2019-09-11T22:50:05+02:00
+date: 2019-09-11
 draft: true
 
 tags : ["cloud", "ansible", "automation"]
-categories : ["cloud", "ansible", "automation"]
-banner : "img/cloud_small_aws.png"
+categories: howto
+banner : "/assets/images/content/cloud-small-aws.png"
 author : "Fabian Born"
 ---
 
