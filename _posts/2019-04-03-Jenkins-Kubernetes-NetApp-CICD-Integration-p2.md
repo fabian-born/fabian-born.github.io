@@ -76,19 +76,19 @@ In the General section you define basic setting of the project. In this case her
 
 ### Build Triggers
 In **Build Triggers** you define how the pipeline would started. The demo build will start when a new commit will be published on gitlab.
-![pipelineStep2](/assets/images/content/pipeline_2.png)
+![pipelineStep2](/assets/images/content/pipeline-2.png)
 
 The point "Build when a change is pushed to GitLab. GitLab webhook URL: http://jenkins:8080/project/WebApp" must be enabled. 
 In the background a Webhook link will be created which will be added to the gitlab project. For the webhook you need a security token which can be created under advenced: 
 
-![pipelineStep3](/img/jenk8sna/pipeline_3.png)
+![pipelineStep3](/assets/images/content/pipeline-3.png)
 
 ### Advanced Project Options
 Here is nothing to configure :-)
 
 ### Pipeline
 In the last section you add your pipeline script to the project. The easiest way is to link the "Jenkins"-File to the file on your gitlab/github project.
-![pipelineStep4](/img/jenk8sna/pipeline_4.png)
+![pipelineStep4](/assets/images/content/pipeline-4.png)
 
 The Demo uses this Jenkinsfile:
 ```groovy
