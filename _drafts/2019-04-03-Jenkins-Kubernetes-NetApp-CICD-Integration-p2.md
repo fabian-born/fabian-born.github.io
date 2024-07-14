@@ -1,10 +1,11 @@
 ---
 title: "Jenkins K8s NetApp CI/CD Demo - Part 2"
-date:  2019-04-03T21:00:00+02:00
+date:  2019-04-03
 draft: false 
-categories: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
+categories: howto
+tags: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
 layout: post
-banner: /img/jenk8sna/jenkins_dashboard.png
+banner: /assets/images/content/jenkins-dashboard.png
 ---
 
 The last article shows, how you should prepare your environment. This post describes the configuration of GitLab and Jenkins.
@@ -15,7 +16,7 @@ At first Jenkins has to be configured. This will be done by WebUI, which is reac
 
 
 After a successfull authenication you will redirect to the Jenkins Dashboard.
-![jenkinsDashboard](/img/jenk8sna/jenkins_dashboard.png)
+![jenkinsDashboard](/assets/images/content/jenkins-dashboard.png)
 ## Configuring Credentials
 
 For the CI/CD demo with the WebApp requires some credentials:
@@ -28,7 +29,7 @@ For the CI/CD demo with the WebApp requires some credentials:
 On the left side go to "Credential" -> "System" -> "Global credential (unrestricted)" -> "Add Credential"
 
 Now enter your dockerhub credential:
-![jenkinsDockerCredential](/img/jenk8sna/jenkins_docker_credential.png)
+![jenkinsDockerCredential](/assets/images/content/jenkins-docker-credential.png)
 
 **Important:** **ID** must be ***docker-hub-cred***
 
@@ -41,15 +42,15 @@ Before your create the gitlab credentials you need the api key of your gitlab ac
 
 Login to your gitlab account -> goto Settings -> Access Token
 
-![GitLabAPIToken](/img/jenk8sna/gitlabAPIToken1.png)
+![GitLabAPIToken](/assets/images/content/gitlabAPIToken1.png)
 
 
 copy your token to an editor, because you need it later.
-![GitLabAPIToken2](/img/jenk8sna/gitlabAPIToken2.png)
+![GitLabAPIToken2](/assets/images/content/gitlabAPIToken2.png)
 
 
 Go back to Jenkins in the submenu for creating credential and add create a credential set:
-![jenkinsGitLabCredential](/img/jenk8sna/jenkins_gitlab_credential.png)
+![jenkinsGitLabCredential](/assets/images/content/jenkins-gitlab-credential.png)
 
 If there is no "GitLab API token" in the "Child" menu, the Gitlab plug-in must be installed first.
 **API token** is the token which has been created a step before.
@@ -60,7 +61,7 @@ If there is no "GitLab API token" in the "Child" menu, the Gitlab plug-in must b
 
 Now the basic configuration as been done and the pipeline project can be created. For a new project/pipeline click on "New Item" on the dashboard. A wizzard will help you to create the pipeline project.
 There are many project types with different functions. But for the demo case we will create a "Pipeline Project". 
-![pipelineStep0](/img/jenk8sna/jenkins_new_pipeline.png)
+![pipelineStep0](/assets/images/content/jenkins_new-pipeline.png)
 
 
 The pipeline project is seperated in four diffrent Sections:
@@ -71,11 +72,11 @@ The pipeline project is seperated in four diffrent Sections:
 
 ### General
 In the General section you define basic setting of the project. In this case here there is nothing to do.
-![pipelineStep1](/img/jenk8sna/pipeline_1.png)
+![pipelineStep1](/assets/images/content/pipeline-1.png)
 
 ### Build Triggers
 In **Build Triggers** you define how the pipeline would started. The demo build will start when a new commit will be published on gitlab.
-![pipelineStep2](/img/jenk8sna/pipeline_2.png)
+![pipelineStep2](/assets/images/content/pipeline_2.png)
 
 The point "Build when a change is pushed to GitLab. GitLab webhook URL: http://jenkins:8080/project/WebApp" must be enabled. 
 In the background a Webhook link will be created which will be added to the gitlab project. For the webhook you need a security token which can be created under advenced: 
