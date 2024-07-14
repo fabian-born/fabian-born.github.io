@@ -1,14 +1,14 @@
 ---
 title: "Jenkins K8s NetApp CI/CD Demo - Part 1"
-date:  2019-03-21T13:00:00+02:00
+date:  2019-03-21
 draft: false
-categories: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
-banner: /img/jenk8sna/img_jenkins-k8s-netapp_env.png
+categories: howto
+tags: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
+banner: /assets/images/content/img-jenkins-k8s-netapp-env.png
 layout: post
 ---
 This example will show you the CI/CD integration with Jenkins, Kubernetes and NetApp on a simple Web Application.
 
-![environment overview](/img/jenk8sna/img_jenkins-k8s-netapp_env.png)
 
 ## Pre-requisits
 Before start this demo there are some requirements:
