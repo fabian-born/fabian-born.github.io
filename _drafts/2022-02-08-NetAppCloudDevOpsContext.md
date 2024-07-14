@@ -1,14 +1,12 @@
 ---
 title: "NetApp in a Cloud DevOps Context!"
-date:  2022-02-08T00:00:00+02:00
+date:  2022-02-08
 draft: false
-categories: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
-banner: /na_devops.png
+categories: howto
+tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
+banner: /assets/images/content/na-devops.png
 layout: post
 ---
-
-
-﻿<img width="1019" alt="image" src="https://user-images.githubusercontent.com/36699674/152789722-b6b828da-d03a-478c-9ba4-932d2f148aea.png">
 
 # NetApp in a Cloud DevOps Context!
 Are you running a Kubernetes platform in the cloud based on cloud provider native services today? Then let me show you how NetApp can help to optimize this environment.
