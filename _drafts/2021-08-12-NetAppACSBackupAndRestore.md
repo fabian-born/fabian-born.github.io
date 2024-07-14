@@ -1,8 +1,9 @@
 ---
 title: "Backup and Restore with NetApp "
-date:  2021-08-12T06:00:00+02:00
+date:  2021-08-12
 draft: false
-categories: ["NetApp","Astra Control","Kubernetes","Trident","DevOps"]
+categories: howto
+tags: ["NetApp","Astra Control","Kubernetes","Trident","DevOps"]
 banner: "https://img.youtube.com/vi/UcUUqcjWzFg/0.jpg"
 layout: post
 author : "Fabian Born"
