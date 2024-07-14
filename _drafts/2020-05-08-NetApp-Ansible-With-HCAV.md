@@ -1,11 +1,12 @@
 ---
 title: "NetApp Ansible Authentication with Hashicorp Vault"
-date:  2020-05-08T12:45:00+02:00
+date:  2020-05-08
 draft: false
-categories: ["ansible","automation","hashicorp"]
+categories: howto
+tags: ["ansible","automation","hashicorp"]
 tags : ["cloud", "ansible", "automation","hashicorp"]
 author : "Fabian Born"
-banner: "img/netapp-ansible-hasicorp.png"
+banner: "/assets/images/content/netapp-ansible-hasicorp.png"
 ---
 ## NetApp Ansible Authentication with Hashicorp Vault
 Today I want to show how to use NetApp Ansible Modules together with a Credential Store. Although Ansible comes also with a vault, but I decided to use Hashicorp Vault today. 
