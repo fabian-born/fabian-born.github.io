@@ -1,9 +1,10 @@
 ---
 title: "Installer Addon for NetApp Trident using kubectl - Update"
-date:  2021-01-22T06:00:00+02:00
+date:  2021-01-22
 draft: false
-categories: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
-banner: /img/autotridentupdate.png
+categories: howto
+tags: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
+banner: /assets/images/cobtent/autotridentupdate.png
 layout: post
 author : "Fabian Born"
 ---

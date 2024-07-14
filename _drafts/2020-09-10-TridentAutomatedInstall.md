@@ -1,9 +1,9 @@
 ---
 title: "Automated install of NetApp Trident using kubectl"
-date:  2020-09-10T07:00:00+02:00
+date:  2020-09-10
 draft: false
 categories: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
-banner: /img/autotrident.png
+banner: /assets/images/content/autotrident.png
 layout: post
 ---
 
