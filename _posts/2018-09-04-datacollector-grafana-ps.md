@@ -6,7 +6,7 @@ banner: "/assets/images/content/grafana-overview.png"
 categories: ["homematic","automation","Powershell"]
 layout: post
 ---
-![Grafana Screenshot](/img/grafana-overview.png)
+
 ## Update: Jetzt mit Powershell
 Nach dem das Powershell Skript eine weile lief, habe ich mich daran gemacht, es einwenig umzubauen. Anforderung war, dass es in bestimmten Abständen laufen soll, aber man hierfür nicht die Cron von Linux nehmen muss. Ich habe mich dann Entschieden Powershell 6 Core zu verweden. 
 

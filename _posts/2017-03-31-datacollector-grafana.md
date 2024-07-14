@@ -6,7 +6,7 @@ banner: "/assets/images/content/grafana-overview.png"
 categories: ["homematic","automation"]
 layout: post
 ---
-![Grafana Screenshot](/img/grafana-overview.png)
+
 Wer kennt das nicht. Heizt die Heizung richtig? Wie verhält sich die Raumtemperatur? Wie sieht es mit der Luftfeutigkeit im Zimmer aus?
 
 Homematic bietet zwar die Möglichkeit Werte in einem Graphen darzustellen. Das war für mich allerdings sehr unbefriedigend. Und eine andere Lösung muss her:
