@@ -3,7 +3,8 @@ title: "Datacollector für HomeMatic und Grafana"
 date:  2017-03-31
 draft: false
 banner: "/assets/images/content/grafana-overview.png"
-categories: ["homematic","automation"]
+categories: howto
+tags: homematic automation 
 layout: post
 ---
 

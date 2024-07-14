@@ -3,7 +3,8 @@ title: "UPDATE: Datacollector für HomeMatic und Grafana mit PoSH"
 date:  2018-09-04
 draft: false
 banner: "/assets/images/content/grafana-overview.png"
-categories: ["homematic","automation","Powershell"]
+tags: homematic automation powershell
+categories: howto 
 layout: post
 ---
 

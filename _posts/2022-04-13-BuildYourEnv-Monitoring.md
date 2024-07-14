@@ -2,7 +2,8 @@
 title: "Monitoring of Kubernetes Cluster ..."
 date:  2022-04-13
 draft: false
-categories: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
+categories: howto
+tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
 banner: /assets/images/content/byke-title-monitoring.png
 layout: post
 ---
