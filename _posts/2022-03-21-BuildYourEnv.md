@@ -1,11 +1,16 @@
 ---
-title: "Build your DevOps Environment!"
-date:  2022-03-21T00:00:00+02:00
+title: Build your DevOps Environment
+
+date: 2022-03-021
 draft: false
-categories: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
-banner: /assets/images/content/nadevops_p1.png
+tag: NetApp Docker Kubernetes Trident DevOps Azure GCP AWS AstraControl
+categorie: howto
+banner: /assets/images/content/nadevopsp1.png
 layout: post
 ---
+
+
+
 # Build your DevOps Environment!
 The LinkedIn post ["NetApp in a Cloud DevOps Context"](https://www.linkedin.com/pulse/netapp-cloud-devops-context-fabian-born/) showed how an optimized Kubernetes environment can look in the cloud. This series of articles now show how to build such an environment in an automated way.
 
