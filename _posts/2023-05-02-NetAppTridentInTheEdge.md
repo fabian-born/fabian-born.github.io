@@ -4,15 +4,12 @@ date:  2023-05-02
 draft: false
 categories: announcements
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
-# banner: /trident-in-the-edge.png
+banner: /assets/images/content/trident-in-the-edge.png
 layout: post
 toc: false
 ---
 
-
 # NetApp Trident for ARM is now available !
-
-![environment overview](/assets/images/content/trident-in-the-edge.png)
 
 How cool is that 😎? #ARM support in Astra Trident 2023.04!
  
