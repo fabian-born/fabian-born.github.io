@@ -1,7 +1,7 @@
 ---
 title: Build your DevOps Environment
 
-date: 2022-03-021
+date: 2022-03-21
 draft: false
 tag: NetApp Docker Kubernetes Trident DevOps Azure GCP AWS AstraControl
 categorie: howto
