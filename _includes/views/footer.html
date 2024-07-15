@@ -2,7 +2,8 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
-    <div class="site-footer-inner">
+    <div class="site-footer-inner row align-items-start">
+      <div clas="col">
         {%- assign currentYear = 'now' | date: "%Y" -%}
         {%- assign copyright = site.copyright
             | replace: '{currentYear}', currentYear
@@ -16,7 +17,7 @@
       generator." href="https://jekyllrb.com/">Jekyll</a> </div>
       <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
     </div>
-    <div class="site-footer-inner">
+    <div clas="col">ss
       {%- assign currentYear = 'now' | date: "%Y" -%}
       {%- assign copyright = site.copyright
           | replace: '{currentYear}', currentYear
@@ -29,6 +30,7 @@
     <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
     generator." href="https://jekyllrb.com/">Jekyll</a> </div>
     <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
+  </div>
   </div>
   </div>
 </footer>
