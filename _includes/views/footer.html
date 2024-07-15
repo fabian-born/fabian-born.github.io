@@ -3,16 +3,18 @@
   <div class="container py-3">
     <div class="row">
       <div class="col">
-        {%- if site.author %}
-        <ul class="contact-list list-unstyled">
-          {% if site.author.name -%}
-            <li class="p-name">{{ site.author.name | escape }}</li>
-          {% endif -%}
-          {% if site.author.email -%}
-            <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-          {%- endif %}
-        </ul>
-        {%- endif %}
+        {%- assign currentYear = 'now' | date: "%Y" -%}
+        {%- assign copyright = site.copyright
+            | replace: '{currentYear}', currentYear
+            | replace: '{author}', site.author
+            | replace: '(c)', '&copy;'
+            | replace: '(p)', '℗'
+            | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
+        -%}
+      <div>{{ copyright }}</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> </div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
         <p class="feed-subscribe">
           <a class="btn btn-orange text-white" href="{{ 'feed.xml' | relative_url }}">
             <i class="bi bi-rss-fill"></i>
