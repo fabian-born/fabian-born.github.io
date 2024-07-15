@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ## About Me
-<img align="right" height="183" src="/assets/content/images/fabianborn-neu.jpg">
+<img align="right" height="183" src="/assets/images/content/fabianborn-neu.jpg">
 
 I’ve been in the IT world for over 25 years now - even if I don’t look like it! Both professionally and privately, I like to deal with new topics such as the cloud, Kubernetes and much more.
 
