@@ -4,7 +4,7 @@ date:  2021-01-22
 draft: false
 categories: howto
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
-banner: /assets/images/cobtent/autotridentupdate.png
+banner: /assets/images/content/autotridentupdate.png
 layout: post
 author : "Fabian Born"
 ---

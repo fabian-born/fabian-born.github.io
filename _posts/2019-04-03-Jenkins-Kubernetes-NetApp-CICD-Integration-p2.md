@@ -61,7 +61,7 @@ If there is no "GitLab API token" in the "Child" menu, the Gitlab plug-in must b
 
 Now the basic configuration as been done and the pipeline project can be created. For a new project/pipeline click on "New Item" on the dashboard. A wizzard will help you to create the pipeline project.
 There are many project types with different functions. But for the demo case we will create a "Pipeline Project". 
-![pipelineStep0](/assets/images/content/jenkins_new-pipeline.png)
+![pipelineStep0](/assets/images/content/jenkins-new-pipeline.png)
 
 
 The pipeline project is seperated in four diffrent Sections:

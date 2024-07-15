@@ -28,12 +28,12 @@ However, the following post only shows how to add your Kubernetes clusters to Cl
 But if you want to know more about troubleshooting, you can contact me or one of the specialists.
 
 If you already have an instance / or the newly created one available, you get the link displayed and can now login there.
-![environment overview](/byke_monitoring_cvo.png)
+![environment overview](/assets/images/content/byke-monitoring-cvo.png)
 
 The central entry point for Cloud Insights is Cloud Central. If you are not registered yet, you should do so and have the possibility to try out many products via a trial.
 
 After registration you can start your own Cloud Insights instance via **"Products"** -- **"Cloud Insights"** -- **"Start Free Trial"**.
-![environment overview](/byke_monitoring_cvo.png)
+![environment overview](/assets/images/content/byke-monitoring-cvo.png)
 
 ### Generate API token
 Because Cloud Insights is a NetApp service, the performance data is sent to. To do this, a piece of software must be installed in the Kubernetes cluster, but before this can be done, the following requirements must first be met.

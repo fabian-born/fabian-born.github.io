@@ -92,7 +92,7 @@ If there is no Loadbalancer IP available you can use the address **http://NODE_I
 3. Login with the password from step 1 and the username: admin
 
 
---> read the next article: [Part 2](https://blog.fabianborn.net/blog/2019/04/03/jenkins-kubernetes-netapp-cicd-integration-p2/ "Part 2")
+--> read the next article: [Part 2](/howto/2019/04/03/Jenkins-Kubernetes-NetApp-CICD-Integration-p2.html "Part 2")
 
  <!---  
     Reference/Links which are included in text
