@@ -12,21 +12,20 @@ toc: false
  
 The prerequisite is a current Trident (version 24.02). Depending on which version is currently on the cluster, this may need to be updated (e.g. if deployed via Helm: helm upgrade trident -n trident netapp-trident/trident-operator).
  
-Then the ACP (Astra Control Provisioner) mode of Trident is activated, this enables the integration between Astra Control and Trident. If necessary, adjust the registry here (if internal registry) or create a registry secret in the Trident namespace so that it can pull the additional ACP image:
-
-````
-kubectl -n trident patch torc/trident --type=json -p='[ 
-        {"op":"add", "path":"/spec/enableACP", "value": true},
-        {"op":"add", "path":"/spec/acpImage","value": "cr.demo.astra.netapp.io/astra/trident-acp:24.02.0"}
-    ]'
-``` 
+Then the ACP (Astra Control Provisioner) mode of Trident is activated, this enables the integration between Astra Control and Trident. Checkout the [ACP documentation](https://docs.netapp.com/us-en/astra-control-center/get-started/enable-acp.html) to install ACP! 
  
 ## Install Astra Connector
 This is the component that is now running locally in the respective cluster (push vs. pull mode). This can initially also run independently of the central Astra Control instance.
 
  
-Create CRDs and Namespaces: ```kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/24.02.0-202403151353/astraconnector_operator.yaml```
+Create CRDs and Namespaces: ```kubectl apply -f https://github.com/NetApp/astra-connector-operator/releases/download/202407111448-main/astraconnector_operator.yaml```
 (creates two new namespaces, for the operator and the connector itself)
+
+```bash
+kubectl get pods -n astra-connector-operator
+NAME                                           READY   STATUS              RESTARTS   AGE
+operator-controller-manager-df79977cc-zddxv    2/2     Running       0          27s
+```
  
 Create a registration secret (adapt it to your internal registration if necessary):
 
@@ -48,10 +47,18 @@ spec:
     skipTLSValidation: true #Should be set to false in production environments
     tokenRef: astra-token
   natsSyncClient:
-    cloudBridgeURL: dummy.demo.netapp.com
+    cloudBridgeURL: registry
   imageRegistry:
-    name: cr.demo.astra.netapp.io
+    name: registry
     secret: regcred
+```
+
+Result should looks like:
+```bash
+kubectl get pods -n astra-connector -w
+NAME                                        READY   STATUS    RESTARTS   AGE
+nats-0                                      1/1     Running   0          71s
+neptune-controller-manager-5594fbc9-qwqjx   2/2     Running   0          104s
 ```
  
 ## Set up snapshots & backup 
