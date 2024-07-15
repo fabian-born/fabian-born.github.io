@@ -40,7 +40,7 @@ author: Fabian Born
 #   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
 #   "Copyright © 2017-2021 Foobar"
 #
-copyright: " Work (cleft) 2017-{currentYear} {author}"
+copyright: "Copyright (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
   Arguing with an engineer is like wrestling with a pig in mud. After a wihle, you realize the pig is enjoing it. - Jamie Lawrence
@@ -120,7 +120,7 @@ yat:
 # brand_color: orangered
 #
 # Custom color as below:
-# brand_color: "#1a8e42"
+brand_color: "#1a8e42"
 
 # You can custom selection style
 # selection:
@@ -138,7 +138,7 @@ yat:
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 #
-night_mode: "auto"
+night_mode: "manual"
 
 # Code badge setting
 # You can enable or disable the code badge and so on
@@ -154,6 +154,7 @@ header_pages:
   - index.html
   - about.md
   - categories.html
+  - tags.html
 #   - archives.html
 #   - categories.html
 #   - tags.html
