@@ -2,7 +2,7 @@
 title: "Backup and Restore with NetApp "
 date:  2021-12-16
 draft: false
-categories: announcement
+categories: announcements
 tags: ["NetApp","Astra Control","Kubernetes","Trident","DevOps"]
 banner: "https://img.youtube.com/vi/zOYvFYP-Xnk/0.jpg"
 layout: post
