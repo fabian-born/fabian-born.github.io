@@ -2,7 +2,7 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper container py-3">
-    <div class="row align-items-start">
+    <div class="row">
       <div clas="col">
         {%- assign currentYear = 'now' | date: "%Y" -%}
         {%- assign copyright = site.copyright
@@ -13,9 +13,6 @@
             | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
         -%}
       <p>{{ copyright }}</p>
-      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site
-      generator." href="https://jekyllrb.com/">Jekyll</a> </p>
-      <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
     </div>
     <div clas="col">
       <div class="col">
