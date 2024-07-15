@@ -16,9 +16,9 @@ A nice step to bring EKS and FSxN together. I will show you how you can enable a
 The add-on must first be subscribed to before it can be used. Once everything has been completed, the Astra Trident add-on can be activated. In this short video, you can see all the necessary steps.
 
 
-Now that Trident has been installed, you can continue with the backend configuration. I will share a small example – but for the complete settings take a look into the [official documentation](https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html):
+Now that Trident has been installed, you can continue with the backend configuration. I will share a small example – but for the complete settings take a look into the [![official documentation](https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html):
 
-[![EKS Deployment](https://img.youtube.com/vi/cFFybX83iFE/0.jpg)](https://youtu.be/cFFybX83iFE) 
+[![EKS Deployment](https://img.youtube.com/vi/cFFybX83iFE/0.jpg)](https://youtu.be/) 
 
 ```yaml
 apiVersion: v1
