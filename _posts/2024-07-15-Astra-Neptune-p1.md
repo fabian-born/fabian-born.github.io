@@ -8,13 +8,15 @@ banner: /assets/images/content/astra_neptune.png
 layout: post
 toc: false
 ---
-## Update Trident and activate ACP
+## Requirements
+### Update Trident and activate ACP
  
 The prerequisite is a current Trident (version 24.02). Depending on which version is currently on the cluster, this may need to be updated (e.g. if deployed via Helm: helm upgrade trident -n trident netapp-trident/trident-operator).
  
 Then the ACP (Astra Control Provisioner) mode of Trident is activated, this enables the integration between Astra Control and Trident. Checkout the [ACP documentation](https://docs.netapp.com/us-en/astra-control-center/get-started/enable-acp.html) to install ACP! 
  
-## Install Astra Connector
+## Astra Connector
+### Install Astra Connector Operator
 This is the component that is now running locally in the respective cluster (push vs. pull mode). This can initially also run independently of the central Astra Control instance.
 
  
@@ -27,14 +29,16 @@ NAME                                           READY   STATUS              RESTA
 operator-controller-manager-df79977cc-zddxv    2/2     Running       0          27s
 ```
  
+
+### Install Astra Connector
 Create a registration secret (adapt it to your internal registration if necessary):
 
-```kubectl create secret docker-registry regcred --docker-username= 86406506-9136-46b7-a9c3-4a7e26f17974 --docker-password= CcDtaZ-xyPjvjBMtJBdBxOWpNVG6DQjU4daIb-09RWg=  -n astra-connector --docker-server=cr.demo.astra.netapp.io````
+```kubectl create secret docker-registry regcred --docker-username= 86406506-9136-46b7-a9c3-4a7e26f17974 --docker-password= CcDtaZ-xyPjvjBMtJBdBxOWpNVG6DQjU4daIb-09RWg=  -n astra-connector --docker-server=registry````
 
  
 Adapt the following YAML and then deploy. In principle, only the clusterName (later identifies the local cluster in the central management). If you already have it, you can also add the URL that the central instance will later have (via Ingress or Loadbalancer). 
  
-```
+```yaml
 apiVersion: astra.netapp.io/v1
 kind: AstraConnector
 metadata:
@@ -60,8 +64,8 @@ NAME                                        READY   STATUS    RESTARTS   AGE
 nats-0                                      1/1     Running   0          71s
 neptune-controller-manager-5594fbc9-qwqjx   2/2     Running   0          104s
 ```
- 
-## Set up snapshots & backup 
+## Applications 
+### Snapshots & Backup 
 First, you need the object store on which backups and metadata (also for snapshots) are stored. Here in the example for an Ontap-S3, for StorageGrid simply change the providerType to "storagegrid-s3". In addition, change the "name" if necessary (if several buckets are used, you can differentiate between them using this field). Also adjust the "endpoint" and "bucketName":
 
 ```yaml
@@ -83,7 +87,7 @@ metadata:
 spec:
   providerType: ontap-s3
   providerConfig:
-    endpoint: s3.demo.netapp.com
+    endpoint: s3.company.org
     bucketName: astra
     skipCertValidation: "true"
   providerCredentials:
@@ -152,8 +156,13 @@ spec:
   granularity: hourly
   minute: "10"
 ```
- 
-Backup without restore would be kind of stupid... To do this, determine the backup path and use: ```kubectl -n astra-connector get backup bkp1 -o=jsonpath='{.status.appArchivePath}'```
+### Restore Application
+Backup without restore would be kind of stupid... To do this, determine the backup path and use: 
+```bash 
+kubectl -n astra-connector get backup bkp1 -o=jsonpath='{.status.appArchivePath}'
+```
+
+Now you can restore your application!
 
 ```yaml
 apiVersion: astra.netapp.io/v1
