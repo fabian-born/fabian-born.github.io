@@ -1,8 +1,9 @@
-<footer class="footer mt-auto py-3 bg-light h-card">
+<footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
-  <div class="container py-3">
-    <div class="row">
-      <div class="col">
+
+  <div class="wrapper container">
+    <div class="site-footer-inner row align-items-start">
+      <div clas="col">
         {%- assign currentYear = 'now' | date: "%Y" -%}
         {%- assign copyright = site.copyright
             | replace: '{currentYear}', currentYear
@@ -11,27 +12,11 @@
             | replace: '(p)', '℗'
             | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
         -%}
-      <div>{{ copyright }}</div>
-      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
-      generator." href="https://jekyllrb.com/">Jekyll</a> </div>
+      <p>{{ copyright }}</p>
+      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> </p>
       <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
-        <p class="feed-subscribe">
-          <a class="btn btn-orange text-white" href="{{ 'feed.xml' | relative_url }}">
-            <i class="bi bi-rss-fill"></i>
-            <span>Subscribe</span>
-          </a>
-        </p>
-      </div>
-      <div class="col">
-        <p>{{ site.description | escape }}</p>
-      </div>
     </div>
-    {%- if site.bootstrap.social_links -%}
-    <div class="row py-3">
-      <div class="col">
-        {%- include social.html -%}
-      </div>
-    </div>
-    {%- endif -%}
+  </div>
   </div>
 </footer>
