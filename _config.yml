@@ -120,7 +120,7 @@ yat:
 # brand_color: orangered
 #
 # Custom color as below:
-brand_color: "#1a8e42"
+# brand_color: "#1a8e42"
 
 # You can custom selection style
 # selection:
@@ -250,3 +250,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+social_links:
+  twitter: 'https://twitter.com/fabian-born'
+  github:  'https://github.com/fabian-born'
