@@ -1,6 +1,6 @@
 ---
 title: "Astra Connector"
-date:  2024-07-16
+date:  2024-07-15
 draft: false
 categories: howto
 tags: ["NetApp","Astra","Kubernetes","Trident","DevOps","Backup"]
