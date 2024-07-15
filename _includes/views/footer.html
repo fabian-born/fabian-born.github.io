@@ -1,8 +1,8 @@
-<footer class="site-footer h-card mt-auto py3">
+<footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div class="wrapper container py-3">
-    <div class="row">
+  <div class="wrapper container">
+    <div class="site-footer-inner row align-items-start">
       <div clas="col">
         {%- assign currentYear = 'now' | date: "%Y" -%}
         {%- assign copyright = site.copyright
@@ -12,12 +12,9 @@
             | replace: '(p)', '℗'
             | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
         -%}
-      <p>{{ copyright }}</p>
-    </div>
-    <div clas="col">
-      <div class="col">
-        <p>{{ site.description | escape }}</p>
-      </div>  
+      <div><p><b>{{ site.description | escape }}</b></p></div>
+      <div>{{ copyright }}</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
     </div>
   </div>
   </div>
