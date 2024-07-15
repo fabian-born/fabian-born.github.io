@@ -1,8 +1,8 @@
-<footer class="site-footer h-card">
+<footer class="site-footer h-card mt-auto py3">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div class="wrapper container">
-    <div class="site-footer-inner row align-items-start">
+  <div class="wrapper container py-3">
+    <div class="row align-items-start">
       <div clas="col">
         {%- assign currentYear = 'now' | date: "%Y" -%}
         {%- assign copyright = site.copyright
@@ -18,19 +18,10 @@
       <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
     </div>
     <div clas="col">
-      {%- assign currentYear = 'now' | date: "%Y" -%}
-      {%- assign copyright = site.copyright
-          | replace: '{currentYear}', currentYear
-          | replace: '{author}', site.author
-          | replace: '(c)', '&copy;'
-          | replace: '(p)', '℗'
-          | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
-      -%}
-    <p>{{ copyright }}</p>
-    <p>Powered by <a title="Jekyll is a simple, blog-aware, static site
-    generator." href="https://jekyllrb.com/">Jekyll</a> </p>
-    <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div>
-  </div>
+      <div class="col">
+        <p>{{ site.description | escape }}</p>
+      </div>  
+    </div>
   </div>
   </div>
 </footer>
