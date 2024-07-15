@@ -4,7 +4,7 @@ date:  2024-02-24
 draft: false
 categories: howto
 tags: ["NetApp","Astra","Kubernetes","Trident","DevOps","Backup"]
-banner: /assets/images/content/astra_neptune.png
+banner: /assets/images/content/neptun.png
 layout: post
 toc: false
 ---
