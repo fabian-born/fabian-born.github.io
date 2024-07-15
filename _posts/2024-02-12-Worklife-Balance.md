@@ -2,7 +2,7 @@
 title: "Enhancing Work-Life Balance with Kubernetes Automation"
 date:  2024-02-12
 draft: false
-banner: "/assets/images/content/kubernetes.png"
+banner: "/assets/images/content/kubernetes.jpg"
 categories: blog
 tags: kubernetes worklife
 layout: post
