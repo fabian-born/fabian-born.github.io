@@ -14,6 +14,13 @@ In my little HomeLab I test out lots of things, which I will also write about he
 If you want to know more of me, check my public profiles:
 [LinkedIn][linkedin] / [GitHub][github]
 
+### HomeLab Configuration
+In the next few days, I will describe my Homelab in more detail.
+
+### My GitHub Stats
+<a href="https://github-readme-stats.vercel.app/api?username=fabian-born&show_icons=true&theme=tokyonight&count_private=true&hide=stars">
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=fabian-born&show_icons=true&theme=blueberry&count_private=true&hide=stars&show=reviews,discussions_started" />
+</a>
 
 [linkedin]: https://linkedin.com/in/fabian-born
 [github]: https://github.com/fabian-born
