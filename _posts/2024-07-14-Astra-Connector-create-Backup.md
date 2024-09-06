@@ -1,5 +1,5 @@
 ---
-title: "Astra Connector"
+title: "Astra Connector (deprecated)"
 date:  2024-07-14
 draft: false
 categories: howto
