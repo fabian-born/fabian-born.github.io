@@ -6,6 +6,7 @@ banner: "/assets/images/content/kubernetes.jpg"
 categories: blog
 tags: kubernetes worklife
 layout: post
+author: "Fabian Born"
 ---
 Kubernetes is an open-source platform for automating, scaling, and managing containerized applications. It enables companies to deploy and operate applications more efficiently by simplifying the orchestration and automation of containers.
 

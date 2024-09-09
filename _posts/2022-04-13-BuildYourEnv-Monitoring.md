@@ -6,6 +6,7 @@ categories: howto
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
 banner: /assets/images/content/byke-title-monitoring.png
 layout: post
+author: "Fabian Born"
 ---
 ## ... with NetApp Cloud Insights
 

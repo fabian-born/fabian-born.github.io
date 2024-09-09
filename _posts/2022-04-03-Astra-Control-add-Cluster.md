@@ -7,6 +7,7 @@ tags: NetApp Docker Kubernetes Trident DevOps Azure GCP AWS AstraControl
 categories: howto
 banner: /assets/images/content/nadevops-autobackup.png
 layout: post
+author: "Fabian Born"
 ---
 
 ## Automated enabling backup

@@ -7,6 +7,7 @@ tags: NetApp Docker Kubernetes Trident DevOps Azure GCP AWS AstraControl
 categorie: howto
 banner: /assets/images/content/nadevopsp1.png
 layout: post
+author: "Fabian Born"
 ---
 
 

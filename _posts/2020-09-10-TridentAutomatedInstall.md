@@ -6,6 +6,7 @@ categories: howto blog
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
 banner: /assets/images/content/autotrident.png
 layout: post
+author: "Fabian Born"
 ---
 
 Who wasn‘t yet faced the challenge to install NetApp Trident on multiple kubernetes clusters? NetApp provides very good documentation on [ReadTheDocs]( https://netapp-trident.readthedocs.io/en/stable-v20.07/ "Netapp Trident Documentation"). But you must execute the instruction step by step. 

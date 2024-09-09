@@ -7,6 +7,7 @@ tags: ["NetApp","Astra","Kubernetes","Trident","DevOps","Backup"]
 banner: /assets/images/content/neptun1.png
 layout: post
 toc: false
+author: "Fabian Born"
 ---
 ### Requirements
 #### Update Trident, activate ACP, install Astra Connector
