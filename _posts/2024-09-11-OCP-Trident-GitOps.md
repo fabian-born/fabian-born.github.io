@@ -7,6 +7,7 @@ tags: ["NetApp","Kubernetes","Trident","DevOps","Backup"]
 banner: /assets/images/content/orchexcell.jpg
 layout: post
 toc: false
+author : "Fabian Born"
 ---
 ### OpenShift and NetApp Trident Integrated with GitOps
 
@@ -19,7 +20,7 @@ This is where **NetApp Trident** comes into play. Trident is an open-source stor
 #### Integration in Data Centers and the Cloud
 NetApp Trident plays a pivotal role in orchestrating data both **on-premises in data centers** and in the **cloud**. This flexibility allows businesses to take advantage of hybrid infrastructures, where workloads can be dynamically shifted between local data centers and the cloud. This ensures efficient resource utilization, cost optimization, and secure, reliable data availability.
 
-Through integration with cloud services like AWS, Microsoft Azure, and Google Cloud, Trident guarantees a consistent storage solution, enabling containerized applications to run with the same performance and security standards both locally and in the cloud. This supports the vision of **cloud-native** and **hybrid-cloud architectures**, offering maximum flexibility without compromising data security or performance.
+Through integration with cloud providers (hyperscalers) like AWS, Microsoft Azure, and Google Cloud, Trident guarantees a consistent storage solution, enabling containerized applications to run with the same performance and security standards both locally and in the cloud. This supports the vision of **cloud-native** and **hybrid-cloud architectures**, offering maximum flexibility without compromising data security or performance.
 
 #### Data Management and Protection
 Beyond storage, Trident places a strong emphasis on **data management and protection**. With features like snapshots and replication, organizations can create backups of their data at any time and restore them quickly in case of failure. This is crucial for ensuring data availability and resilience in high-critical production environments.
