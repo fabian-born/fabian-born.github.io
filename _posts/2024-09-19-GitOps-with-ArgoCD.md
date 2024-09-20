@@ -1,6 +1,6 @@
 ---
 title: "Orchestrating Excellence"
-date:  2024-09-06
+date:  2024-10-01
 draft: false
 categories: blog
 tags: ["NetApp","Kubernetes","Trident","DevOps","Backup"]
