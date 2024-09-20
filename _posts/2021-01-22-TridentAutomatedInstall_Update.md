@@ -6,7 +6,7 @@ categories: howto
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps"]
 banner: /assets/images/content/autotridentupdate.png
 layout: post
-author : "Fabian Born"
+author: "Fabian Born"
 ---
 ### Trident Installer Addon
 Three month ago I published my first version of an automated NetApp Trident installer for Kubernetes cluster. 

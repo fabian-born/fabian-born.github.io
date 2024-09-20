@@ -6,6 +6,7 @@ categories: howto
 tags: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
 layout: post
 banner: /assets/images/content/jenkins-dashboard.png
+author: "Fabian Born"
 ---
 
 The last article shows, how you should prepare your environment. This post describes the configuration of GitLab and Jenkins.

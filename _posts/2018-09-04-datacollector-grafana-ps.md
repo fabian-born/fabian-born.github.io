@@ -6,6 +6,7 @@ banner: "/assets/images/content/grafana-overview.png"
 tags: homematic automation powershell
 categories: howto 
 layout: post
+author: "Fabian Born"
 ---
 
 ## Update: Jetzt mit Powershell

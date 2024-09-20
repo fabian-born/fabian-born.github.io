@@ -6,6 +6,7 @@ categories: howto
 tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraControl"]
 banner: /assets/images/content/na-devops.png
 layout: post
+author: "Fabian Born"
 ---
 
 # NetApp in a Cloud DevOps Context!

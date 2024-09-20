@@ -5,7 +5,7 @@ draft: false
 categories: howto
 tags: ["ansible","automation","hashicorp"]
 tags : ["cloud", "ansible", "automation","hashicorp"]
-author : "Fabian Born"
+author: "Fabian Born"
 banner: "/assets/images/content/netapp-ansible-hasicorp.png"
 ---
 ## NetApp Ansible Authentication with Hashicorp Vault

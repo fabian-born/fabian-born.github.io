@@ -7,6 +7,7 @@ tags: ["NetApp","Docker","Kubernetes","Trident","DevOps","Azure","GCP","AstraCon
 banner: /assets/images/content/trident-in-the-edge.png
 layout: post
 toc: false
+author: "Fabian Born"
 ---
 
 # NetApp Trident for ARM is now available !

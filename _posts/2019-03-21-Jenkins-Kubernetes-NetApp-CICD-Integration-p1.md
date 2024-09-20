@@ -6,6 +6,7 @@ categories: howto
 tags: ["NetApp","Jenkins","Kubernetes","Trident","DevOps"]
 banner: /assets/images/content/img-jenkins-k8s-netapp-env.png
 layout: post
+author: "Fabian Born"
 ---
 This example will show you the CI/CD integration with Jenkins, Kubernetes and NetApp on a simple Web Application.
 

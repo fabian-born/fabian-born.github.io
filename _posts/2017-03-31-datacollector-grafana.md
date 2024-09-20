@@ -6,6 +6,7 @@ banner: "/assets/images/content/grafana-overview.png"
 categories: howto
 tags: homematic automation 
 layout: post
+author: "Fabian Born"
 ---
 
 Wer kennt das nicht. Heizt die Heizung richtig? Wie verhält sich die Raumtemperatur? Wie sieht es mit der Luftfeutigkeit im Zimmer aus?

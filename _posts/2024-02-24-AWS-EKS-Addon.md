@@ -7,6 +7,7 @@ tags: ["NetApp","EKS","Kubernetes","Trident","DevOps","AWS"]
 banner: /assets/images/content/eks.png
 layout: post
 toc: false
+author: "Fabian Born"
 ---
 
 View weeks ago AWS and NetApp announced that Astra Trident is now available as an EKS add-on.

@@ -6,7 +6,7 @@ categories: announcements
 tags: ["NetApp","Astra Control","Kubernetes","Trident","DevOps"]
 banner: "https://img.youtube.com/vi/zOYvFYP-Xnk/0.jpg"
 layout: post
-author : "Fabian Born"
+author: "Fabian Born"
 ---
 ### Astra Control Center - December Release 2021
 Today NetApp released the new release of Astra Control Center. ACC provides the ability to backup and restore kubernetes applications.
