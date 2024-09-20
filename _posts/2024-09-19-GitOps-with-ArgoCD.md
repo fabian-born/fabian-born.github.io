@@ -1,6 +1,6 @@
 ---
 title: "Orchestrating Excellence - ArgoCD"
-date:  2024-09-22
+date:  2024-09-20
 draft: false
 categories: blog
 tags: ["Kubernetes","Trident","DevOps","ArgoCD"]
