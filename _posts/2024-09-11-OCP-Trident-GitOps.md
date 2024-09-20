@@ -6,7 +6,7 @@ categories: blog
 tags: ["NetApp","Kubernetes","Trident","DevOps","Backup"]
 banner: /assets/images/content/orchexcell.jpg
 layout: post
-toc: false
+toc: true
 author: "Fabian Born"
 ---
 ### OpenShift and NetApp Trident Integrated with GitOps

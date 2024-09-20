@@ -1,14 +1,14 @@
 ---
-title: "Orchestrating Excellence"
-date:  2024-10-01
+title: "Orchestrating Excellence - ArgoCD"
+date:  2024-09-22
 draft: false
 categories: blog
-tags: ["NetApp","Kubernetes","Trident","DevOps","Backup"]
+tags: ["Kubernetes","Trident","DevOps","ArgoCD"]
 banner: /assets/images/content/orchexcell.jpg
 layout: post
 toc: false
 ---
-
+## ArgoCD as Plattform
 To create an ArgoCD project, you need to define a project in ArgoCD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an ArgoCD project using YAML:
 
 ### Prerequisites:
@@ -21,7 +21,7 @@ To create an ArgoCD project, you need to define a project in ArgoCD that manages
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: my-project  # The name of the ArgoCD project
+  name: argocddemo # The name of the ArgoCD project
   namespace: argocd # The namespace where ArgoCD is installed (usually 'argocd')
 spec:
   description: "My project for managing apps with ArgoCD"
@@ -62,7 +62,7 @@ spec:
 
 1. **apiVersion & kind**: Defines the kind of resource. Here it’s `AppProject`.
 2. **metadata**: 
-   - `name`: Name of the project, e.g., `my-project`.
+   - `name`: Name of the project, e.g., `argocddemo`.
    - `namespace`: Namespace where ArgoCD is installed (`argocd` by default).
 3. **spec**:
    - **description**: A short description of the project.
@@ -105,7 +105,7 @@ metadata:
   name: my-app
   namespace: argocd
 spec:
-  project: my-project # Reference to the project created above
+  project: argocddemo   # Reference to the project created above
   source:
     repoURL: https://github.com/myorg/myrepo.git
     path: manifests
@@ -125,8 +125,35 @@ Apply the application using:
 kubectl apply -f argocd-application.yaml
 ```
 
-This will deploy the resources defined in the Git repo under the `my-project` project.
+This will deploy the resources defined in the Git repo under the `argocddemo` project.
 
-### Conclusion
+## Git Repo for ArgoCD applications
+To implement a Git repository structure for an ArgoCD project, it’s important to organize the repository in a way that promotes scalability, modularity, and maintainability. This structure allows you to efficiently manage multiple environments (e.g., dev, staging, prod) and applications, along with reusable Kubernetes manifests (Helm charts, Kustomize, etc.).
 
-By following these steps, you've successfully built and configured an ArgoCD project. You can now use this project to manage multiple applications in a GitOps style, with fine-grained control over which repositories and clusters can be accessed.
+Here’s an example for a Git repository structure for an ArgoCD project:
+
+**High-Level Directory Structure**
+
+```bash
+├── apps/                # Contains the ArgoCD applications
+│   ├── dev/             # Manifests for the 'dev' environment
+│   ├── staging/         # Manifests for the 'staging' environment
+│   └── prod/            # Manifests for the 'prod' environment
+├── base/                # Common base manifests, reusable for all environments
+│   ├── app1/
+│   └── app2/
+├── environments/        # Environment-specific overlays (Kustomize or Helm)
+│   ├── dev/
+│   ├── staging/
+│   └── prod/
+├── helm-charts/         # Optional: Custom Helm charts (if using Helm)
+│   ├── app1-chart/
+│   └── app2-chart/
+└── argocd-apps/         # ArgoCD application definitions
+    ├── dev-app.yaml
+    ├── staging-app.yaml
+    └── prod-app.yaml
+```
+
+
+**More on this topic in the next blog post :-)**
