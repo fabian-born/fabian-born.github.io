@@ -7,6 +7,7 @@ tags: ["Kubernetes","Trident","DevOps","ArgoCD"]
 banner: /assets/images/content/orchexcell.jpg
 layout: post
 toc: false
+author: "Fabian Born"
 ---
 ## ArgoCD as Plattform
 To create an ArgoCD project, you need to define a project in ArgoCD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an ArgoCD project using YAML:
