@@ -1,5 +1,5 @@
 ---
-title: "Orchestrating Excellence - ArgoCD"
+title: "Orchestrating Excellence - Argo CD"
 date:  2024-09-20
 draft: false
 categories: blog
@@ -9,23 +9,23 @@ layout: post
 toc: false
 author: "Fabian Born"
 ---
-## ArgoCD as Plattform
-To create an ArgoCD project, you need to define a project in ArgoCD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an ArgoCD project using YAML:
+## Argo CD as Plattform
+To create an Argo CD project, you need to define a project in Argo CD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an ArgoCD project using YAML:
 
 ### Prerequisites:
-- **ArgoCD installed and configured** on your Kubernetes cluster.
+- **Argo CD installed and configured** on your Kubernetes cluster.
 - **kubectl** configured to communicate with the cluster.
 
-### Step 1: Define the ArgoCD Project YAML
+### Step 1: Define the Argo CD Project YAML
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: argocddemo # The name of the ArgoCD project
-  namespace: argocd # The namespace where ArgoCD is installed (usually 'argocd')
+  namespace: argocd # The namespace where Argo CD is installed (usually 'argocd')
 spec:
-  description: "My project for managing apps with ArgoCD"
+  description: "My project for managing apps with Argo CD"
   # Define which source repositories are allowed
   sourceRepos:
     - https://github.com/myorg/myrepo.git
@@ -64,11 +64,11 @@ spec:
 1. **apiVersion & kind**: Defines the kind of resource. Here it’s `AppProject`.
 2. **metadata**: 
    - `name`: Name of the project, e.g., `argocddemo`.
-   - `namespace`: Namespace where ArgoCD is installed (`argocd` by default).
+   - `namespace`: Namespace where Argo CD is installed (`argocd` by default).
 3. **spec**:
    - **description**: A short description of the project.
    - **sourceRepos**: The Git repository URL(s) allowed for this project.
-   - **destinations**: Defines where ArgoCD is allowed to deploy. You can restrict this by specifying a namespace and cluster.
+   - **destinations**: Defines where Argo CD is allowed to deploy. You can restrict this by specifying a namespace and cluster.
    - **clusterResourceWhitelist**: Specifies which cluster-level resources are allowed (e.g., ConfigMaps, Custom Resource Definitions).
    - **namespaceResourceWhitelist**: Specifies which namespace-level resources are allowed (e.g., Deployments, Pods).
    - **roles**: Custom roles can be defined for specific actions like `create`, `get`, etc. These roles can be assigned to groups.
@@ -82,18 +82,18 @@ Once your YAML is ready, you can apply it to your Kubernetes cluster using `kube
 kubectl apply -f argocd-project.yaml
 ```
 
-### Step 3: Verify the Project in ArgoCD
+### Step 3: Verify the Project in Argo CD
 
 You can verify that the project was successfully created by using either:
 
-- **ArgoCD UI**: Go to the ArgoCD web UI and look for the `Projects` section.
+- **Argo CD UI**: Go to the ArgoCD web UI and look for the `Projects` section.
 - **kubectl**:
 
 ```bash
 kubectl get appprojects -n argocd
 ```
 
-### Step 4: Create an ArgoCD Application in this Project
+### Step 4: Create an Argo CD Application in this Project
 
 Now that your project is set up, you can create an application that deploys resources from your Git repository to your Kubernetes cluster.
 
@@ -128,10 +128,10 @@ kubectl apply -f argocd-application.yaml
 
 This will deploy the resources defined in the Git repo under the `argocddemo` project.
 
-## Git Repo for ArgoCD applications
-To implement a Git repository structure for an ArgoCD project, it’s important to organize the repository in a way that promotes scalability, modularity, and maintainability. This structure allows you to efficiently manage multiple environments (e.g., dev, staging, prod) and applications, along with reusable Kubernetes manifests (Helm charts, Kustomize, etc.).
+## Git Repo for Argo CD applications
+To implement a Git repository structure for an Argo CD project, it’s important to organize the repository in a way that promotes scalability, modularity, and maintainability. This structure allows you to efficiently manage multiple environments (e.g., dev, staging, prod) and applications, along with reusable Kubernetes manifests (Helm charts, Kustomize, etc.).
 
-Here’s an example for a Git repository structure for an ArgoCD project:
+Here’s an example for a Git repository structure for an Argo CD project:
 
 **High-Level Directory Structure**
 
