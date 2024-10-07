@@ -1,16 +1,16 @@
 ---
 title: "Orchestrating Excellence - Argo CD"
-date:  2024-09-20
+date:  2024-09-19
 draft: false
 categories: blog
-tags: ["Kubernetes","Trident","DevOps","ArgoCD"]
+tags: ["Kubernetes","Trident","DevOps","Argo CD"]
 banner: /assets/images/content/orchexcell.jpg
 layout: post
 toc: false
 author: "Fabian Born"
 ---
 ## Argo CD as Plattform
-To create an Argo CD project, you need to define a project in Argo CD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an ArgoCD project using YAML:
+To create an Argo CD project, you need to define a project in Argo CD that manages access and deployment for your GitOps repositories and clusters. Here's a step-by-step guide to building an Argo CD project using YAML:
 
 ### Prerequisites:
 - **Argo CD installed and configured** on your Kubernetes cluster.
@@ -22,14 +22,14 @@ To create an Argo CD project, you need to define a project in Argo CD that manag
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: argocddemo # The name of the ArgoCD project
+  name: argocddemo # The name of the Argo CD project
   namespace: argocd # The namespace where Argo CD is installed (usually 'argocd')
 spec:
   description: "My project for managing apps with Argo CD"
   # Define which source repositories are allowed
   sourceRepos:
     - https://github.com/myorg/myrepo.git
-  # Define the destination clusters where ArgoCD is allowed to deploy
+  # Define the destination clusters where Argo CD is allowed to deploy
   destinations:
     - namespace: default
       server: https://kubernetes.default.svc
@@ -86,7 +86,7 @@ kubectl apply -f argocd-project.yaml
 
 You can verify that the project was successfully created by using either:
 
-- **Argo CD UI**: Go to the ArgoCD web UI and look for the `Projects` section.
+- **Argo CD UI**: Go to the Argo CD web UI and look for the `Projects` section.
 - **kubectl**:
 
 ```bash
@@ -97,7 +97,7 @@ kubectl get appprojects -n argocd
 
 Now that your project is set up, you can create an application that deploys resources from your Git repository to your Kubernetes cluster.
 
-Example ArgoCD Application YAML:
+Example Argo CD Application YAML:
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -136,7 +136,7 @@ Here’s an example for a Git repository structure for an Argo CD project:
 **High-Level Directory Structure**
 
 ```bash
-├── apps/                # Contains the ArgoCD applications
+├── apps/                # Contains the Argo CD applications
 │   ├── dev/             # Manifests for the 'dev' environment
 │   ├── staging/         # Manifests for the 'staging' environment
 │   └── prod/            # Manifests for the 'prod' environment
@@ -150,7 +150,7 @@ Here’s an example for a Git repository structure for an Argo CD project:
 ├── helm-charts/         # Optional: Custom Helm charts (if using Helm)
 │   ├── app1-chart/
 │   └── app2-chart/
-└── argocd-apps/         # ArgoCD application definitions
+└── argocd-apps/         # Argo CD application definitions
     ├── dev-app.yaml
     ├── staging-app.yaml
     └── prod-app.yaml
