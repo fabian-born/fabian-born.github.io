@@ -10,7 +10,7 @@ layout: post
 ## FSx for NetApp ONTAP and EKS more than a perfect match
 
 #### Architecture
-![grafik](https://github.com/project-epicshit/project-epicshit.github.io/assets/36699674/6c80b9b6-c0c0-415a-9606-178ce4f9b743)
+![grafik](https://blog.fabianborn.net/images/content/eks-architecture.png)
 
 #### Why EKS with FSxN
 Amazon FSx for NetApp ONTAP with Amazon EKS provides a scalable and fully managed storage solution that complements containerized workloads by offering high-performance, shared file storage. Here’s why it’s a great fit:
@@ -46,11 +46,10 @@ NetApp Trident is used to connect the storage to EKS. As a CSI driver, Trident i
 
 ### 2. Deploying  FSx for NetApp ONTAP
 
-Now that the ROSA cluster has been created, the VPC and subnet IDs for FSxN are required. These are displayed on the CLI among other things:
+Now that the EKS cluster has been created, the VPC and subnet IDs for FSxN are required. These are displayed on the CLI among other things:
 
 ```bash
-aws ec2 describe-vpcs --region us-east-1 --filters Name=tag:red-hat-clustertype,Values=rosa
-aws ec2 describe-subnets --region us-east-1 --filters Name=tag:red-hat-clustertype,Values=rosa Name=tag:Name,Values="*public*"
+
 ```
 Alternatively, you can also get this information via the AWS Console. 
 
