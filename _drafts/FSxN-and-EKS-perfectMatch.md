@@ -44,15 +44,11 @@ NetApp Trident is used to connect the storage to EKS. As a CSI driver, Trident i
 
 ### 1. Deploying EKS Cluster
 
+I used following Documentation to create a new EKS cluster [external link](https://www.eksworkshop.com). After creating your cluster, be sure that minimum one worker node exits. 
+
+Export the kubeconf file from your cluster. Is required for running commands against the kubernetes cluster.
 
 ### 2. Deploying FSx for NetApp ONTAP
-
-Now that the EKS cluster has been created, the VPC and subnet IDs for FSxN are required. These are displayed on the CLI among other things:
-
-```bash
-
-```
-Alternatively, you can also get this information via the AWS Console. 
 
 FSxN can also be configured in several ways. This. Guide now describes the way via the AWS Console. To do this, go to FSx in the Console, select "Create file system", and click on "Configure".
 
@@ -149,11 +145,13 @@ allowVolumeExpansion: True
 Now Trident can be installed:
 1. Login into EKS Cluster
 2. Install Trident Provisioner operator
-3. Install Trident Protect operator 
+
+ 
 ```
 helm installer
 ```   
 4. Apply configurations
+ 
 ```
 kubectl apply -f trident_backend_fsxadmin_credentials.yaml -n trident
 kubectl apply -f trident_backend_fsxn.yaml -n trident
