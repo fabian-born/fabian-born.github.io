@@ -71,6 +71,8 @@ Name:	filestore.ad.epicshit.io
 Address: 10.64.22.99
 ```
 
+The next step is to create the LDAP config:
+
 ```
 vserver services name-service ldap client create -vserver filestore -client-config filestore -ad-domain ad.epicshit.io -bind-as-cifs-server true -schema MS-AD-BIS
 vserver services name-service ns-switch modify -vserver filestore  -database passwd,group -sources ldap,files 
