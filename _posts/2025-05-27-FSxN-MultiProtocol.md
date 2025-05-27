@@ -143,30 +143,32 @@ Possible options for sec= with Kerberos:
 **krb5i** 	Use Kerberos for authentication and hash traffic between client and server to ensure integrity
 **krb5p** 	Use Kerberos for authentication and encrypt traffic between client and server
 
+
 ## Set the NTFS permissions
-1. Creating an NTFS security descriptor
- 
+### Creating an NTFS security descriptor
+
 ```
 vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator 
 ```
 
 Adding ‘-control-flags-raw 0x9014’ disables inheritance, only the defined ACL are set. Use this if permissions are not applied to a volume.
- 
+
 ```
 vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator -control-flags-raw 0x9014
 ```
- 
-2. Removing BUILTIN* from DACL list
+
+### Removing BUILTIN* from DACL list
+
 ```
 vserver security file-directory ntfs dacl remove -ntfs-sd sd01 -access-type allow -account BUILTIN\* -vserver filestore
 ```
- 
-3. Adding NTFS DACL access control entries to the NTFS security descriptor
+
+### Adding NTFS DACL access control entries to the NTFS security descriptor
 ```
 vserver security file-directory ntfs dacl add -ntfs-sd sd01 -access-type allow -account "AD\Domain Users" -advanced-rights read-data, execute-file, read-ea, read-attr, read-perm, write-data, append-data, write-attr -vserver filestore -apply-to this-folder,sub-folders,files
 ```
- 
-4. Verifying DACL
+
+### Verifying DACL
 
 ```
 vserver security file-directory ntfs dacl show -ntfs-sd sd01
@@ -186,17 +188,19 @@ Vserver: filestore
 3 entries were displayed.
 ```
 
-4. Creating a security policy and adding a task 
+### Creating a security policy and adding a task 
 ```
 vserver security file-directory policy create -policy-name sd01-policy -vserver filestore
- 
+
 vserver security file-directory policy task add -policy-name sd01-policy -path /nfs1/group1 -ntfs-mode propagate -security-type ntfs -ntfs-sd sd01  -access-control file-directory -vserver filestore
-``` 
-5. Applying the security policy on NTFS files and folders using the CLI:
+```
+
+### Applying the security policy on NTFS files and folders using the CLI
 ```
 vserver security file-directory apply -vserver filestore -policy-name sd01-policy
-``` 
-6. Monitoring the security policy job:
+```
+
+### Monitoring the security policy job
 ```
 vserver security file-directory job show  -vserver filestore
  
@@ -209,7 +213,7 @@ Job ID Name                 Vserver    Node           State
        Description: File Directory Security Apply Job
 ```
 
-7.Verifying the applied file security:
+### Verifying the applied file security
 ```
 vserver security file-directory show -vserver filestore -path /nfs1/group1
 
@@ -234,10 +238,9 @@ Dummy index for tree walk: -
                              ALLOW-AD\Domain Users-0x1201af-OI|CI
                              ALLOW-CREATOR OWNER-0x1f01ff-OI|CI
                              ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff-OI|CI
-````
-
+```
 
 ## Additional links
-[TR-4616] (https://www.netapp.com/media/19384-tr-4616.pdf)NFS Kerberos in ONTAP
-[TR-4887] (https://www.netapp.com/media/27436-tr-4887.pdf)Multiprocotol NAS in NetApp ONTAP
+[TR-4616]NFS Kerberos in ONTAP(https://www.netapp.com/media/19384-tr-4616.pdf)
+[TR-4887]Multiprocotol NAS in NetApp ONTAP(https://www.netapp.com/media/27436-tr-4887.pdf)
 [ONTAP Documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-kerberos-concept.html)
