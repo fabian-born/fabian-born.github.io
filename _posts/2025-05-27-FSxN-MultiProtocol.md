@@ -134,7 +134,7 @@ Especially in the AD and NFSv4 context, it is important to work with the correct
 The file system can now be mounted.
 ```
 nfs:    mount -t nfs -o vers=4.1,sec=krb5 filestore.ad.epicshit.io:/nfs1 /share/
-smb:    mount -t cifs -o username=fabian,**multiuser**,sec=krb5 //filestore.ad.epicshit.io/smbonnfs1 /share/smb1/
+smb:    mount -t cifs -o username=fabian,multiuser,sec=krb5 //filestore.ad.epicshit.io/smbonnfs1 /share/smb1/
 ```
 
 Additional notes:
@@ -143,6 +143,101 @@ Possible options for sec= with Kerberos:
 **krb5i** 	Use Kerberos for authentication and hash traffic between client and server to ensure integrity
 **krb5p** 	Use Kerberos for authentication and encrypt traffic between client and server
 
+## Set the NTFS permissions
+1. Creating an NTFS security descriptor
+ 
+```
+vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator 
+```
+
+Adding ‘-control-flags-raw 0x9014’ disables inheritance, only the defined ACL are set. Use this if permissions are not applied to a volume.
+ 
+```
+vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator -control-flags-raw 0x9014
+```
+ 
+2. Removing BUILTIN* from DACL list
+```
+vserver security file-directory ntfs dacl remove -ntfs-sd sd01 -access-type allow -account BUILTIN\* -vserver filestore
+```
+ 
+3. Adding NTFS DACL access control entries to the NTFS security descriptor
+```
+vserver security file-directory ntfs dacl add -ntfs-sd sd01 -access-type allow -account "AD\Domain Users" -advanced-rights read-data, execute-file, read-ea, read-attr, read-perm, write-data, append-data, write-attr -vserver filestore -apply-to this-folder,sub-folders,files
+```
+ 
+4. Verifying DACL
+
+```
+vserver security file-directory ntfs dacl show -ntfs-sd sd01
+
+Vserver: filestore
+  NTFS Security Descriptor Name: sd01
+
+    Account Name     Access   Access             Apply To
+                     Type     Rights
+    --------------   -------  -------            -----------
+    AD\Domain Users   
+                     allow    read-data, execute-file, read-ea, read-attr, read-perm, write-data, append-data, write-attr   
+                                                 this-folder, sub-folders, files
+    CREATOR OWNER    allow    full-control       this-folder, sub-folders, files
+    NT AUTHORITY\SYSTEM   
+                     allow    full-control       this-folder, sub-folders, files
+3 entries were displayed.
+```
+
+4. Creating a security policy and adding a task 
+```
+vserver security file-directory policy create -policy-name sd01-policy -vserver filestore
+ 
+vserver security file-directory policy task add -policy-name sd01-policy -path /nfs1/group1 -ntfs-mode propagate -security-type ntfs -ntfs-sd sd01  -access-control file-directory -vserver filestore
+``` 
+5. Applying the security policy on NTFS files and folders using the CLI:
+```
+vserver security file-directory apply -vserver filestore -policy-name sd01-policy
+``` 
+6. Monitoring the security policy job:
+```
+vserver security file-directory job show  -vserver filestore
+ 
+vserver security file-directory job show  -vserver filestore                     
+                            Owning
+Job ID Name                 Vserver    Node           State
+------ -------------------- ---------- -------------- ----------
+2690   Fsecurity Apply      filestore  FsxId0ebcb5e155ad2b3cd-01 
+                                                      Success
+       Description: File Directory Security Apply Job
+```
+
+7.Verifying the applied file security:
+```
+vserver security file-directory show -vserver filestore -path /nfs1/group1
+
+                  Vserver: filestore
+Dummy index for tree walk: -
+                File Path: /nfs1/group1
+        File Inode Number: 99
+           Security Style: ntfs
+          Effective Style: ntfs
+           DOS Attributes: 10
+   DOS Attributes in Text: ----D---
+  Expanded Dos Attributes: -
+             UNIX User Id: 0
+            UNIX Group Id: 0
+           UNIX Mode Bits: 777
+   UNIX Mode Bits in Text: rwxrwxrwx
+                     ACLs: NTFS Security Descriptor
+                           Control:0x9014
+                           Owner:AD\Administrator
+                           Group:AD\Domain Users
+                           DACL - ACEs
+                             ALLOW-AD\Domain Users-0x1201af-OI|CI
+                             ALLOW-CREATOR OWNER-0x1f01ff-OI|CI
+                             ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff-OI|CI
+````
 
 
 ## Additional links
+[TR-4616] (https://www.netapp.com/media/19384-tr-4616.pdf)NFS Kerberos in ONTAP
+[TR-4887] (https://www.netapp.com/media/27436-tr-4887.pdf)Multiprocotol NAS in NetApp ONTAP
+[ONTAP Documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-kerberos-concept.html)
