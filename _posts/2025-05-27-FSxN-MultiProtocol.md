@@ -1,6 +1,6 @@
 ---
 title: "Multiprotocol environment with FSxN"
-date:  2025-10-10
+date:  2025-05-27
 draft: false
 categories: howto
 tags: ["NetApp","FileServices","Ransomware","FSxN","AWS","Cloud"]
