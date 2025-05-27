@@ -32,13 +32,12 @@ NetApp provides various documentation and technical reports for the configuratio
 ### Configuration of the FSxN system
 **note:** the following steps need the "advanced priviledge": ```set adv```
 
-1. Enable Kerberos on FSxN
+### Enable Kerberos on FSxN
 ```
 kerberos realm create -vserver filestore -realm ad.epicshit.io -kdc-vendor Microsoft -kdc-ip 192.168.4.134 -kdc-port 88 -clock-skew 5 -adminserver-ip 192.168.4.134 -adminserver-port 749 -passwordserver-ip 192.168.4.134 -passwordserver-port 464 -adserver-ip 192.168.4.134 -adserver-name dc01.ad.epicshit.io
 ```
 
-2. Enable SPN for NFS interface
-
+### Enable SPN for NFS interface
 ```
 kerberos interface enable -vserver filestore -lif nfs_smb_management_1 -spn nfs/filestore.ad.epicshit.io@AD.EPICSHIT.IO -admin-username fboadm
 ```
@@ -70,17 +69,19 @@ Name:	filestore.ad.epicshit.io
 Address: 10.64.22.99
 ```
 
+### configure ldap client
+```
 vserver services name-service ldap client create -vserver filestore -client-config filestore -ad-domain ad.epicshit.io -bind-as-cifs-server true -schema MS-AD-BIS
 vserver services name-service ns-switch modify -vserver filestore  -database passwd,group -sources ldap,files 
 vserver services name-service ldap create -vserver filestore -client-config filestore  
+```
 
-
-3. Change the NFSv4 Domain of the SVM
+### Change the NFSv4 Domain of the SVM
 ```
 vserver nfs modify -vserver filestore -v4-id-domain ad.epicshit.io
 ```
 
-4. Now create the user mapping for Linux - Kerberos
+### Now create the user mapping for Linux - Kerberos
 ```
 vserver name-mapping create -vserver filestore -direction krb-unix -position 1 -pattern (.+)\$@.* -replacement pcuser
 vserver name-mapping create -vserver filestore -direction krb-unix -position 2 -pattern (.+)@.* -replacement \1
@@ -88,8 +89,7 @@ vserver name-mapping create -vserver filestore -direction win-unix -position 1 -
 vserver name-mapping create -vserver filestore -direction unix-win -position 2 -pattern (.+) -replacement AD\\\1
 ```
 
-5. Verify user mapping on FSxN
-
+### Verify user mapping on FSxN
 ```
 vserver services access-check authentication show-creds -vserver filestore -win-name fabian
 
@@ -128,8 +128,8 @@ As you can see in the second output, the user exists in the Active Directory, bu
 vserver services unix-user create -vserver filestore -user jodoe -id <AD uidNumber> -primary-gid <AD gidNumber>
 ```
 
-6. Mount the exports / shares
-Especially in the AD and NFSv4 context, it is important to work with the correct DNS names. **note** for mounting use the active directory dns name and not the management name from the AWS console!
+### Mount the exports / shares
+Especially in the AD and NFSv4 context, it is important to work with the correct DNS names. **Note** for mounting use the active directory dns name and not the management name from the AWS console!
 
 The file system can now be mounted.
 ```
