@@ -1,7 +1,7 @@
 ---
 title: "Multiprotocol environment with FSxN"
 date:  2025-10-10
-draft: true
+draft: false
 categories: howto
 tags: ["NetApp","FileServices","Ransomware","FSxN","AWS","Cloud"]
 banner: /assets/images/content/cloud-security.png
