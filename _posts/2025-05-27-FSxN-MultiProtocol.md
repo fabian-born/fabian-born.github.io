@@ -38,11 +38,13 @@ kerberos realm create -vserver filestore -realm ad.epicshit.io -kdc-vendor Micro
 ```
 
 2. Enable SPN for NFS interface
+
 ```
 kerberos interface enable -vserver filestore -lif nfs_smb_management_1 -spn nfs/filestore.ad.epicshit.io@AD.EPICSHIT.IO -admin-username fboadm
 ```
+
 **important** This is the DNS name that will be used to mount the share later. This name must point to the IP address of the nfs_smb_management_1 interface
-example:
+
 ```
 net int show -vserver filestore 
   (network interface show)
@@ -179,7 +181,6 @@ kerberos interface enable -vserver filestore -lif nfs_smb_management_1 -spn nfs/
 ```
 
 **Important** This is the DNS name that will be used to mount the share later. This name must point to the IP address of the nfs_smb_management_1 interface
-example:
 
 ```
 net int show -vserver filestore 
@@ -206,7 +207,7 @@ Name:	filestore.ad.epicshit.io
 Address: 10.64.22.99
 ```
 
-3. The next step is to create the LDAP config:
+3. The next step is to create the LDAP config
 
 ```
 vserver services name-service ldap client create -vserver filestore -client-config filestore -ad-domain ad.epicshit.io -bind-as-cifs-server true -schema MS-AD-BIS
