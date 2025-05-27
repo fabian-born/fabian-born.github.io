@@ -29,15 +29,15 @@ To solve the requirement, two things need to be configured:
 
 NetApp provides various documentation and technical reports for the configuration of NFSv4, which you can work through completely, or you can use the next steps.
 
-##### Configuration of the FSxN system
+#### Configuration of the FSxN system
 **note:** the following steps need the "advanced priviledge": ```set adv```
 
-##### Enable Kerberos on FSxN
+#### Enable Kerberos on FSxN
 ```
 kerberos realm create -vserver filestore -realm ad.epicshit.io -kdc-vendor Microsoft -kdc-ip 192.168.4.134 -kdc-port 88 -clock-skew 5 -adminserver-ip 192.168.4.134 -adminserver-port 749 -passwordserver-ip 192.168.4.134 -passwordserver-port 464 -adserver-ip 192.168.4.134 -adserver-name dc01.ad.epicshit.io
 ```
 
-##### Enable SPN for NFS interface
+#### Enable SPN for NFS interface
 ```
 kerberos interface enable -vserver filestore -lif nfs_smb_management_1 -spn nfs/filestore.ad.epicshit.io@AD.EPICSHIT.IO -admin-username fboadm
 ```
@@ -69,19 +69,19 @@ Name:	filestore.ad.epicshit.io
 Address: 10.64.22.99
 ```
 
-##### Configure ldap client
+#### Configure ldap client
 ```
 vserver services name-service ldap client create -vserver filestore -client-config filestore -ad-domain ad.epicshit.io -bind-as-cifs-server true -schema MS-AD-BIS
 vserver services name-service ns-switch modify -vserver filestore  -database passwd,group -sources ldap,files 
 vserver services name-service ldap create -vserver filestore -client-config filestore  
 ```
 
-##### Change the NFSv4 Domain of the SVM
+#### Change the NFSv4 Domain of the SVM
 ```
 vserver nfs modify -vserver filestore -v4-id-domain ad.epicshit.io
 ```
 
-##### Now create the user mapping for Linux - Kerberos
+#### Now create the user mapping for Linux - Kerberos
 ```
 vserver name-mapping create -vserver filestore -direction krb-unix -position 1 -pattern (.+)\$@.* -replacement pcuser
 vserver name-mapping create -vserver filestore -direction krb-unix -position 2 -pattern (.+)@.* -replacement \1
@@ -89,7 +89,7 @@ vserver name-mapping create -vserver filestore -direction win-unix -position 1 -
 vserver name-mapping create -vserver filestore -direction unix-win -position 2 -pattern (.+) -replacement AD\\\1
 ```
 
-##### Verify user mapping on FSxN
+#### Verify user mapping on FSxN
 ```
 vserver services access-check authentication show-creds -vserver filestore -win-name fabian
 
@@ -128,7 +128,7 @@ As you can see in the second output, the user exists in the Active Directory, bu
 vserver services unix-user create -vserver filestore -user jodoe -id <AD uidNumber> -primary-gid <AD gidNumber>
 ```
 
-##### Mount the exports / shares
+#### Mount the exports / shares
 Especially in the AD and NFSv4 context, it is important to work with the correct DNS names. **Note** for mounting use the active directory dns name and not the management name from the AWS console!
 
 The file system can now be mounted.
@@ -145,7 +145,7 @@ Possible options for sec= with Kerberos:
 
 
 ## Set the NTFS permissions
-##### Creating an NTFS security descriptor
+#### Creating an NTFS security descriptor
 ```
 vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator 
 ```
@@ -155,17 +155,17 @@ Adding ‘-control-flags-raw 0x9014’ disables inheritance, only the defined AC
 vserver security file-directory ntfs create -vserver filestore -ntfs-sd sd01 -owner AD\Administrator -control-flags-raw 0x9014
 ```
 
-##### Removing BUILTIN* from DACL list
+#### Removing BUILTIN* from DACL list
 ```
 vserver security file-directory ntfs dacl remove -ntfs-sd sd01 -access-type allow -account BUILTIN\* -vserver filestore
 ```
 
-##### Adding NTFS DACL access control entries to the NTFS security descriptor
+#### Adding NTFS DACL access control entries to the NTFS security descriptor
 ```
 vserver security file-directory ntfs dacl add -ntfs-sd sd01 -access-type allow -account "AD\Domain Users" -advanced-rights read-data, execute-file, read-ea, read-attr, read-perm, write-data, append-data, write-attr -vserver filestore -apply-to this-folder,sub-folders,files
 ```
 
-##### Verifying DACL
+#### Verifying DACL
 ```
 vserver security file-directory ntfs dacl show -ntfs-sd sd01
 
@@ -184,19 +184,19 @@ Vserver: filestore
 3 entries were displayed.
 ```
 
-##### Creating a security policy and adding a task 
+#### Creating a security policy and adding a task 
 ```
 vserver security file-directory policy create -policy-name sd01-policy -vserver filestore
 
 vserver security file-directory policy task add -policy-name sd01-policy -path /nfs1/group1 -ntfs-mode propagate -security-type ntfs -ntfs-sd sd01  -access-control file-directory -vserver filestore
 ```
 
-##### Applying the security policy on NTFS files and folders using the CLI
+#### Applying the security policy on NTFS files and folders using the CLI
 ```
 vserver security file-directory apply -vserver filestore -policy-name sd01-policy
 ```
 
-##### Monitoring the security policy job
+#### Monitoring the security policy job
 ```
 vserver security file-directory job show  -vserver filestore
  
@@ -209,7 +209,7 @@ Job ID Name                 Vserver    Node           State
        Description: File Directory Security Apply Job
 ```
 
-##### Verifying the applied file security
+#### Verifying the applied file security
 ```
 vserver security file-directory show -vserver filestore -path /nfs1/group1
 
